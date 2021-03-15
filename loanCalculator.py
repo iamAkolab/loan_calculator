@@ -1,3 +1,4 @@
+#Import 
 from tkinter import * 
 
 class LoanCalculator:
@@ -25,7 +26,7 @@ class LoanCalculator:
         Entry(window, textvariable = self.annualInterestRateVar, justify = RIGHT).grid(row = 1, column = 2)
 
         self.numberOfYearsVar = StringVar()
-        Entry(window, textvariable = self.numberOfYears, justify = RIGHT).grid(row = 2, column = 2)
+        Entry(window, textvariable = self.numberOfYearsVar, justify = RIGHT).grid(row = 2, column = 2)
 
         self.loanAmountVar = StringVar()
         Entry(window, textvariable = self.loanAmountVar, justify = RIGHT).grid(row = 3, column = 2)
@@ -50,7 +51,7 @@ class LoanCalculator:
         monthlyPayment = self.getMonthlyPayment(
             float(self.loanAmountVar.get()),
             float(self.annualInterestRateVar.get()) / 1200,
-            init(self.numberOfYearsVar.get())
+            int(self.numberOfYearsVar.get())
         )
 
         self.monthlyPaymentVar.set(format(monthlyPayment, '10.2f'))
