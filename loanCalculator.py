@@ -43,3 +43,30 @@ class LoanCalculator:
 
         btcClear = Button(window, text = "Clear", background = "red",
         font ="Helvetica 12 bold", command = self.delete_all).grid(row =6, column = 8, padx=20, pady=20, sticky = E)
+
+        window.mainloop()
+
+    def computePayment(self):
+        monthlyPayment = self.getMonthlyPayment(
+            float(self.loanAmountVar.get()),
+            float(self.annualInterestRateVar.get()) / 1200,
+            init(self.numberOfYearsVar.get())
+        )
+
+        self.monthlyPaymentVar.set(format(monthlyPayment, '10.2f'))
+        totalPayment = float(self.monthlyPaymentVar.get()) * 12 * int(self.numberOfYearsVar.get())
+
+        self.totalPaymentVar.set(format(totalPayment,'10.2f'))
+
+    def getMonthlyPayment(self,loanAmount,monthlyInterestRate,numberOfYears):
+        monthlyPayment = loanAmount * monthlyInterestRate / (1-1/(1 + monthlyInterestRate)** (numberOfYears * 12))
+        return monthlyPayment
+
+    def delete_all(self):
+        self.monthlyPaymentVar.set("")
+        self.loanAmountVar.set("")
+        self.annualInterestRateVar.set("")
+        self.numberOfYearsVar("")
+        self.totalPaymentVar.set("")
+
+LoanCalculator()
