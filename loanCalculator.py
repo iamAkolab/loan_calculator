@@ -38,5 +38,8 @@ class LoanCalculator:
         lblMonthlyPayment = Label(window, font = "Helvetica 12 bold", background = "RoyalBlue1",
         textvariable = self.totalPaymentVar) .grid(row = 5, column = 2, sticky = E)
 
-        
-        #super().__init__()
+        btcComputePayment = Button(window, text = "Compute Payment", background = "blue",
+        font ="Helvetica 12 bold", command = self.computePayment).grid(row =6, column = 2, sticky = E)
+
+        btcClear = Button(window, text = "Clear", background = "red",
+        font ="Helvetica 12 bold", command = self.delete_all).grid(row =6, column = 8, padx=20, pady=20, sticky = E)
