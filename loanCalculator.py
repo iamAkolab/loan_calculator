@@ -44,7 +44,7 @@ class LoanCalculator:
         textvariable = self.monthlyPaymentVar) .grid(row = 4, column = 2, sticky = E)
 
         self.totalPaymentVar = StringVar()
-        lblMonthlyPayment = Label(window, font = "Helvetica 12 bold", background = "RoyalBlue1",
+        lbltotalPayment = Label(window, font = "Helvetica 12 bold", background = "RoyalBlue1",
         textvariable = self.totalPaymentVar) .grid(row = 5, column = 2, sticky = E)
         
         # Creayte button to calculate payment, when button is clicked it will call the calculate payment function
@@ -78,7 +78,7 @@ class LoanCalculator:
         self.monthlyPaymentVar.set("")
         self.loanAmountVar.set("")
         self.annualInterestRateVar.set("")
-        self.numberOfYearsVar("")
+        self.numberOfYearsVar.set("")
         self.totalPaymentVar.set("")
 
 # Call the class to run the program
